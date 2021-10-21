@@ -18,6 +18,7 @@ import asyncio
 import inspect
 import logging
 import ssl
+import sys
 from datetime import datetime, timedelta, timezone
 from functools import partial
 from http import HTTPStatus
@@ -33,6 +34,14 @@ from openleadr import utils
 
 logger = logging.getLogger('openleadr')
 logger.setLevel(logging.INFO)
+FORMATTER = logging.Formatter(
+    fmt="%(asctime)s  %(name)s %(levelname)s %(funcName)s:%(lineno)d — %(message)s",
+    datefmt="%Y-%m-%d %H:%M:%S",
+)
+console_handler = logging.StreamHandler(sys.stdout)
+console_handler.setFormatter(FORMATTER)
+logger.propagate = False
+logger.addHandler(console_handler)
 
 
 class OpenADRClient:
@@ -818,7 +827,7 @@ class OpenADRClient:
                                            ven_id=self.ven_id)
             service = 'EiEvent'
             response_type, response_payload = await self._perform_request(service, message)
-            logger.info(response_type, response_payload)
+            logger.info(f"Response_type: {response_type} ; Response_payload: {response_payload}")
         else:
             logger.info("Not sending any event responses, because a response was not required/allowed by the VTN.")
 
@@ -851,7 +860,7 @@ class OpenADRClient:
 
         elif response_type == 'oadrDistributeEvent':
             if 'events' in response_payload and len(response_payload['events']) > 0:
-                logger.info(f"The payload tyupe {type(response_payload)}")
+                logger.info(f"The payload type {type(response_payload)}")
                 await self._on_event(response_payload)
 
         elif response_type == 'oadrUpdateReport':
