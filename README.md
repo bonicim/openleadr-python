@@ -1,9 +1,5 @@
-![Test Suite](https://github.com/OpenLEADR/openleadr-python/workflows/Test%20Suite/badge.svg)
- [![Test Coverage](https://openleadr.org/coverage/badge.svg)](https://openleadr.org/coverage)
- ![PyPI Downloads](https://img.shields.io/pypi/dm/openleadr?color=lightblue&label=PyPI%20Downloads)
- [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/4317/badge)](https://bestpractices.coreinfrastructure.org/projects/4317)
-
-![OpenLEADR](https://openleadr.org/images/lf-logo.png)
+This library is a fork of the openleadr-python library by OpenLEADER. The
+original library is at https://github.com/OpenLEADR/openleadr-python.
 
 OpenLEADR is a Python 3 module that provides a convenient interface to OpenADR
 systems. It contains an OpenADR Client that you can use to talk to other OpenADR

@@ -19,15 +19,15 @@ from setuptools import setup
 with open('README.md', 'r') as fh:
     long_description = fh.read()
 
-setup(name='openleadr',
+setup(name='better-openleadr',
+
       version='0.5.24',
       description='Python3 library for building OpenADR Clients (VENs) and Servers (VTNs)',
       long_description=long_description,
       long_description_content_type='text/markdown',
-      url='https://openleadr.org',
-      project_urls={'GitHub': 'https://github.com/openleadr/openleadr-python',
-                    'Documentation': 'https://openleadr.org/docs'},
-      packages=['openleadr', 'openleadr.service'],
+      url='https://github.com/bonicim/openleadr-python',
+      project_urls={'GitHub': 'https://github.com/bonicim/openleadr-python'},
+      packages=['better-openleadr', 'better-openleadr.service'],
       python_requires='>=3.7.0',
       include_package_data=True,
       install_requires=['xmltodict', 'aiohttp', 'apscheduler', 'jinja2', 'signxml-openadr==2.9.1'],
